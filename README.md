@@ -62,6 +62,11 @@ Follow these steps to get the Expenses Tracking API up and running on your local
     (Replace `expenses-api-0.0.1-SNAPSHOT.jar` with the actual generated JAR file name found in your `target` directory. Alternatively, you can run it directly via Maven: `./mvnw spring-boot:run`)
 
     The application will start on port `8080` by default.
+5.  **Swagger:**
+    After a successful start, you can run the access the Swagger UI:
+    ```
+    http://localhost:8080/swagger-ui/index.html
+    ```    
 
 ### API Endpoints (Examples)
 
@@ -78,6 +83,7 @@ Once the application is running, you can interact with it using HTTP requests.
 *   **Update Monthly Income:** `PATCH http://localhost:8080/api/years/{yearNumber}/{monthName}/income?value={incomeValue}`
     Example: `PATCH http://localhost:8080/api/years/2023/January/income?value=5000.00`
 
+
 ### Configuration
 
 The MongoDB connection details can be found and modified in `src/main/resources/application.properties`:
@@ -85,7 +91,12 @@ The MongoDB connection details can be found and modified in `src/main/resources/
 ```properties
 spring.data.mongodb.database=expenses_db
 spring.application.name=expenses-api
-spring.data.mongodb.uri=mongodb://localhost:27017/expenses_db
+spring.datamongodb.uri=mongodb://localhost:27017/expensesdb
+
+springdoc.swagger-ui.path=/swagger-ui.html
+springdoc.openapi.info.title=Expenses API
+springdoc.openapi.info.version=1.0.0
+springdoc.openapi.info.description=Expenses Track
 ```
 
 ```
