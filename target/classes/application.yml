@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: expenses-app
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/expenses_app}
+
+logging:
+  level:
+    com.expensesapp: INFO
